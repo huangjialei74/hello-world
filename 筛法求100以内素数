@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <math.h>
+void main()
+{
+int i,j;
+int a[100];
+for(i=0;i<100;i++)
+a[i]=i+1;
+for(i=1;i<100;i++)
+{
+if(a[i]==0)
+continue;
+for(j=i+1;j<100;j++)
+ {
+  if(a[j]%a[i]==0)
+  a[j]=0;
+ }
+}
+for(j=1;j<100;j++) //j从1开始，去除a[0]（其值为1），因为1既不是质数，也不是合数
+if(a[j]!=0)
+printf("%d,",a[j]);
+printf("\n");
+}
+
+
