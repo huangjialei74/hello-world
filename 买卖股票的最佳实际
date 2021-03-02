@@ -1,0 +1,35 @@
+int maxProfit(int* prices, int pricesSize)
+{
+    int i,j;
+    int get=0;//收入
+    int low=prices[0];//买入时的价钱
+    
+    for(i=0;i<pricesSize-1;i++)
+    {
+        if(prices[i]<prices[i+1])
+            {
+    if(i+1==pricesSize-1)
+    return get+prices[i+1]-low;//最后两个是上升的那种情况
+
+   for(j=i+1;j<pricesSize-1;j++)
+    {
+    if(prices[j]>prices[j+1])
+        {
+        get+=prices[j]-low;
+        low=prices[j+1];
+        i=j;
+    break;//即将上升至最大值，割菜！
+        }
+       
+    if(prices[j]<=prices[j+1]&&j+1==pricesSize-1)
+{//从某一个数之后的所有数都上升 那种情况
+    get+=prices[j+1]-low;
+    return get;
+}
+    }
+            }
+        else
+          low=prices[i+1];
+    }
+    return get;
+}
