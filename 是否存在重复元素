@@ -1,0 +1,19 @@
+int cmp(const void*a, const void*b) {
+    return *(int*)a - *(int*)b;
+}
+
+bool containsDuplicate(int* a, int n)
+{
+    if (a == NULL || n <= 0) {
+        return false;
+    }
+
+    qsort(a, n, sizeof(int), cmp);
+    //冒泡排序也超时
+    for (int i = 1; i < n; i++) {
+        if (a[i] == a[i - 1]) {
+            return true;
+        }
+    }
+    return false;
+ }
