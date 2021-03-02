@@ -1,0 +1,16 @@
+int singleNumber(int* nums, int numsSize)
+{
+  int i,j,s;
+  for(i = 0; i < numsSize; i++)
+  {
+      s=0;
+  for(j = 0; j < numsSize; j++)
+    {
+     if(i!=j&&nums[i] == nums[j]) 
+         s++;
+    }
+   if(s == 0) 
+       return nums[i];//哈哈
+  }
+    return 0;
+}
