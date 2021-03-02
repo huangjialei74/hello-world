@@ -1,0 +1,16 @@
+int removeDuplicates(int* nums, int numsSize)
+{
+    int i,j;
+    for(i=0;i<numsSize-1;i++)
+    {
+        if(nums[i]==nums[i+1])
+        {
+        for(j=i+1;j<numsSize;j++)
+            nums[j-1]=nums[j];
+        nums[numsSize-1]=0;
+            numsSize--;
+            i--;//删元素后，此元素仍要与被删元素后面的元素比较，i++和i--抵消，使下次仍从此处开始比较
+        }
+    }
+return numsSize;
+}
