@@ -1,0 +1,13 @@
+void moveZeroes(int *nums, int numsSize) 
+{
+	int i=0,place=0;
+	while(i<numsSize)
+    {
+       if(nums[i]!=0)
+       nums[place++]=nums[i];
+       i++;
+       //place所指的全部是非0的
+    }
+    for(i=place;i<numsSize;i++)
+    nums[i]=0;
+}
