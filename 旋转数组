@@ -1,0 +1,11 @@
+void rotate(int* nums, int numsSize, int k)
+{
+    int i,j,e;
+    for(i=1;i<=k;i++)
+    {
+       e=nums[numsSize-1];
+       for(j=numsSize-2;j>=0;j--) 
+           nums[j+1]=nums[j];
+       nums[0]=e;
+    }
+}
