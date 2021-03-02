@@ -1,0 +1,22 @@
+int* intersect(int* nums1, int nums1Size, int* nums2, int nums2Size, int* returnSize)
+{
+    int i,j,k=0;
+    int *a=(int*)malloc(sizeof(int)*nums1Size);
+    for(i=0;i<nums1Size;i++)
+    {
+      for(j=0;j<nums2Size;j++)
+      {
+        if(nums1[i]==nums2[j])
+        {
+        a[k]=nums1[i];
+        nums2[j]=1000;//下次不参与比较，但此数值不严谨
+        k++;
+        break;
+        }
+      }
+    }
+    *returnSize=k;//k本是下标，但每次添加值到a[]后，k++，k就是数组长度了
+    if(k==0)
+       return 0;
+    return a;
+}
