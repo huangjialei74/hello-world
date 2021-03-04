@@ -1,0 +1,64 @@
+int myAtoi(char * s){
+    int len=strlen(s);
+
+    if (s == NULL||len==0) {
+        return 0;
+    } 
+
+    int a[len];   
+    int i,e=1;
+    long num=0;//返回值
+    
+    for(i=0;i<len;i++){//空格
+        if(s[i]!=' ')
+            break;
+        }
+    
+    if(s[i]=='-'){//遇到了正负号
+        e=-1;
+        i++;
+        }
+    else if(s[i]=='+')
+        i++;
+    
+        //去除首位非0数字前的字符
+    for(i;i<len;){
+
+        //没遇到数字，返回0
+    if(s[i]-'0'<=9&&s[i]-'0'>0)
+        break;
+    else if(s[i]=='0')
+        i++;
+    else
+        return 0;
+    }
+ 
+    int k=0;
+    long carry= 1;//carry表示个十百位
+    //返回值的位数k最大为10
+    for(i,k;i<len,k<=10;i++,k++){
+          if(s[i]-'0'>9||s[i]-'0'<0)
+            break;
+        a[k]=s[i]-'0';
+        carry*=10;
+    }
+    k--; //最后一个数录入后k多加了一次
+                
+    for(i=0;i<=k;i++){
+        carry/=10;
+        num+=a[i]*carry;
+    }
+    
+    if(e>0){
+        if(num<=2147483647)
+           return num;
+        else 
+           return 2147483647;
+    }
+    else {
+        if(num<=2147483648)
+           return -num;
+        else
+           return -2147483648;
+     }
+}
