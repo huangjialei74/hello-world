@@ -1,0 +1,24 @@
+int strStr(char * haystack, char * needle){
+    int len1=strlen(haystack);
+    int len2=strlen(needle);
+    
+    if(len2==0)
+        return 0;
+    if(len1==0||len1<len2)
+        return -1;
+    
+    int i,j,k,i2;
+    for(i=0;i<len1;i++){
+        if(needle[0]==haystack[i]){
+          k=i;//记录此下标，为返回值
+          i2=i;
+        for(j=0,i2;j<len2;j++,i2++){
+         if(needle[j]!=haystack[i2])
+                    break;
+              if(j==len2-1)
+                  return k;
+            }
+        }
+    }
+    return -1;
+}
