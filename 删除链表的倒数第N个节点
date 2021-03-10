@@ -1,0 +1,29 @@
+int getLength(struct ListNode* head){
+    int length = 0;
+    while(head != NULL){
+        length++;
+        head = head->next;
+    }
+    return length;
+}
+
+struct ListNode* removeNthFromEnd(struct ListNode* head, int n){
+    int len = getLength(head);
+    int num = len - n;//正数所需遍历的次数
+    
+    struct ListNode *node;
+    node = malloc(sizeof(struct ListNode));
+    node->val = 0;
+    node->next = head;
+    
+    struct ListNode* p = node;//用来遍历的指针
+    while(num>0){
+        p = p -> next;
+        num--;
+    }
+    p->next = p->next->next;
+   // struct ListNode * res = node->next;
+    //free(node);
+    return node->next;
+  //  return res;
+}
