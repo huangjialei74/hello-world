@@ -1,0 +1,4 @@
+void deleteNode(struct ListNode* node) {
+    node->val = node->next->val;
+    node->next = node->next->next;
+}//将该节点复制成下一个节点，然后利用常规的删节点思路删掉它下一个节点
