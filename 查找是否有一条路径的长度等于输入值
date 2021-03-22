@@ -1,0 +1,10 @@
+bool hasPathSum(struct TreeNode* root, int Sum){
+    if(!root)
+        return false;
+    Sum -= root->val;
+    
+if(!Sum&&!root->right&&!root->left)
+    return true;//刚刚好
+    return hasPathSum(root->right,Sum)||hasPathSum(root->left,Sum);
+
+}
