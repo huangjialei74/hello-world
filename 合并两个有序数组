@@ -1,0 +1,41 @@
+//方法一：先将数组 nums 2放进数组 nums 1的尾部，然后直接对整个数组进行排序。
+
+int cmp(int* a, int* b) {
+    return *a - *b;
+}
+void merge(int* nums1, int nums1Size, int m, int* nums2, int nums2Size, int n) {
+    for (int i = 0; i != n; ++i) {
+        nums1[m + i] = nums2[i];
+    }
+    qsort(nums1, nums1Size, sizeof(int), cmp);
+}
+
+
+
+/*
+//两个数组分别设置一个指针 p 1与 p2 来作为队列的头部指针
+
+void merge(int* nums1, int nums1Size, int m, int* nums2, int nums2Size, int n) {
+    int p1 = 0, p2 = 0;
+    int sorted[m + n];
+    int cur;
+    while (p1 < m || p2 < n) {
+        if (p1 == m) {
+            cur = nums2[p2++];
+        } else if (p2 == n) {
+            cur = nums1[p1++];
+        } else if (nums1[p1] < nums2[p2]) {
+            cur = nums1[p1++];
+        } else {
+            cur = nums2[p2++];
+        }
+        sorted[p1 + p2 - 1] = cur;
+    }
+    for (int i = 0; i != m + n; ++i) {
+        nums1[i] = sorted[i];
+    }
+}
+
+*/
+
+
