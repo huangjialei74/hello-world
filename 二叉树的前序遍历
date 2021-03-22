@@ -1,0 +1,19 @@
+void preorder(struct TreeNode* root, int* res, int* resSize) {
+    if (root == NULL) 
+        return;
+        
+    res[(*resSize)++] = root->val;
+    preorder(root->left, res, resSize);
+    preorder(root->right, res, resSize);
+}
+
+//返回的是数组
+int* preorderTraversal(struct TreeNode* root, int* returnSize) {
+    int* res = malloc(sizeof(int) * 2000);//开辟空间
+    *returnSize = 0;
+    preorder(root, res, returnSize);
+    return res;
+}
+
+
+
