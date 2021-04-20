@@ -1,9 +1,19 @@
+
+
 //人类
 public class Person {
 	
 	private String m_Name;//姓名
 	private String m_Id;//编号
 	private String m_Identity;//身份
+	
+	Person(String name,String id,String idn )
+	{
+		setName(name);
+		setId(id);
+		setIdentity(idn);
+	}
+	
 	
 	public void setName(String name) {
 		m_Name = name;	
@@ -32,3 +42,4 @@ public class Person {
 	}
 
 }
+
