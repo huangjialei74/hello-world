@@ -1,22 +1,25 @@
-
+import java.util.Scanner;
 public class test {
+	
+	public static void main(String[] args) {
+		//int a[] = new int[5];
+		int []a={0,1,0,0,0};
+		
+		Sale sa = new Sale(a);
+		
+		System.out.println("请输入顾客名字和手里的钱 用'-'隔开  例如A-20：");
+		while(true) {
+			
+			Scanner sc = new Scanner(System.in);
+			String name = sc.nextLine();
+			
+			if(name.length()==1) break;//输入0 即字符串长度为1的时候 停止卖票
+			
+		    new Thread(sa,name).start();
+		 //   sc.close();
+		}
+		
 
 
-	public static void main(String[] args) {	
-		
-	
-		int a[] = new int [100];
-		for(int i = 0;i<100;i++)//给数组赋值
-			a[i] = i+1;//存入1~100
-		
-		MyThread m = new MyThread(a,30);//a是数组，b是要查找的值，0和50是在数组中开始查找的位置
-	    Thread m1 = new Thread(m,"0-49");
-	    Thread m2 = new Thread(m,"50-99");
-		m1.start();
-		m2.start();
-		
-	
-		
 	}
-
 }
